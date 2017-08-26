@@ -20,6 +20,9 @@
               <%= @current_user.email %>
             </li>
             <li>
+              <%= link "Home", to: "/" %>
+            </li>
+            <li>
               <%= link "My posts", to: user_post_path(@conn, :index, @current_user) %>
             </li>
             <%= if @current_user.is_admin do %>
@@ -30,12 +33,14 @@
                                    method: "delete" %>
             </li>
           <% else %>
+            <li>
+              <%= link "Home", to: "/" %>
+            </li>
             <li><%= link "Register", to: user_path(@conn, :new) %></li>
             <li><%= link "Sign in", to: session_path(@conn, :new) %></li>
           <% end %>
         </ol>
       </div>
-      <span class="logo"></span>
 
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
